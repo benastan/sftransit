@@ -1,4 +1,4 @@
-module SFTransit
+module SfTransit
   class Route < ActiveRecord::Base
     attr_accessible :abbr, :agency, :title 
     has_many :route_junctions, :dependent => :destroy

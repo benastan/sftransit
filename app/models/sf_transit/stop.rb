@@ -1,4 +1,4 @@
-module SFTransit
+module SfTransit
   class Stop < ActiveRecord::Base
     attr_accessible :address, :lat, :lng, :title, :transfer_id
     geocoded_by :full_address, :latitude => :lat, :longitude => :lng

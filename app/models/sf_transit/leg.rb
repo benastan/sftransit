@@ -1,4 +1,4 @@
-module SFTransit
+module SfTransit
   class Leg < ActiveRecord::Base
     attr_accessible :abbr, :route_id, :title
     belongs_to :route

@@ -6,7 +6,7 @@ require "sf_transit/version"
 # Describe your gem and declare its dependencies:
 Gem::Specification.new do |s|
   s.name        = "sf_transit"
-  s.version     = SFTransit::VERSION
+  s.version     = SfTransit::VERSION
   s.authors     = ["Ben Bergstein"]
   s.email       = ["bennyjbergstein@gmail.com"]
   s.summary     = "Easily pull data, cross reference stops and make use of freely available transit resources."

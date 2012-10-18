@@ -1,4 +1,4 @@
-module SFTransit
+module SfTransit
   class LegStop < ActiveRecord::Base
     attr_accessible :leg_id, :stop_id
     delegate :lat, :lng, :nearbys, :to => :stop
