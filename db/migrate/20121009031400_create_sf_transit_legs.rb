@@ -1,6 +1,6 @@
-class CreateLegs < ActiveRecord::Migration
+class CreateSfTransitLegs < ActiveRecord::Migration
   def change
-    create_table :legs do |t|
+    create_table :sf_transit_legs do |t|
       t.string :abbr
       t.string :title
       t.integer :route_id
