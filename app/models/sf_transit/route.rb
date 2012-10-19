@@ -30,6 +30,7 @@ module SfTransit
 
     def self.api_pull
       require 'URI'
+      require 'next_muni'
       routes = NextMuni.get_routes 'sf-muni'
       routes.each do |r|
         route = Route.find_or_initialize_by_agency_and_abbr 'sf-muni', r[:id]
