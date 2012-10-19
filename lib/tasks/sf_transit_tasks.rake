@@ -9,6 +9,11 @@ namespace :sf_transit do
   	task :muni => :environment do
     	SfTransit::Route.api_pull 'sf-muni'
   	end
+
+    desc "pull bart data from the next bus api"
+    task :bart => :environment do
+      SfTransit::Route.api_pull 'bart'
+    end
   end
 end
 
