@@ -7,6 +7,13 @@ module SfTransit
     scope :muni, where(:agency => 'sf-muni')
     scope :bart, where(:agency => 'bart')
 
+    def self.find_by_abbr abbr
+      self.select { |r|
+        return true if r.abbr == abbr
+        not r.legs.find_by_title(abbr).nil?
+      } [0]
+    end
+
     def transfer_to(route)
       transfers = self.direct_transfers
       routes = []
