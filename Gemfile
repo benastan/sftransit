@@ -10,6 +10,7 @@ gem "jquery-rails"
 gem 'pg'
 gem 'geocoder'
 gem 'next_muni', :git => 'git@github.com:benastan/next_muni_gem.git'
+gem 'better_bart', :git => 'git@github.com:benastan/better_bart.git'
 
 # Declare any dependencies that are still in development here instead of in
 # your gemspec. These might include edge Rails or gems from your path or

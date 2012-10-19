@@ -19,6 +19,8 @@ Gem::Specification.new do |s|
   # s.add_dependency "jquery-rails"
   s.add_dependency 'geocoder'
   s.add_dependency 'next_muni'
+  s.add_dependency 'better_bart'
+  s.add_dependency 'directions'
 
   s.add_development_dependency "pg"
 end
