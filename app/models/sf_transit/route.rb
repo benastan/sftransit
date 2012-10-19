@@ -80,6 +80,45 @@ module SfTransit
     end
 
     def self.bart_api_pull
+      require 'bart'
+      routes_data = Bart.routes
+      processed = []
+      routes = []
+      routes_data = routes_data.collect do |r|
+        Bart.routes(r[:number])[0]
+      end
+
+      routes_data.each do |leg|
+        if not processed.include? leg
+          reverse_abbr = leg[:abbr].split('-').reverse.join('-')
+          analogue = routes_data.select {|r| r[:abbr] == reverse_abbr}[0]
+
+          processed << leg
+          processed << analogue
+
+          route = {}
+
+          if leg[:direction] == 'north'
+            route[:north] = leg
+            route[:south] = analogue
+          else
+            route[:south] = leg
+            route[:north] = analogue
+          end
+
+          routes << route
+        end
+      end
+
+      routes.each do |r|
+        route = Route.find_or_initialize_by_agency_and_abbr 'bart', r[:north][:abbr]
+        route.update_attribute :title, r[:north][:name]
+
+        [:north, :south].each do |l|
+          leg = route.legs.find_or_initialize_by_abbr_and_title r[l][:number], r[l][:abbr]
+          leg.save() unless leg.id
+        end
+      end
     end
   end
 end
