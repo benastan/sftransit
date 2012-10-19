@@ -7,7 +7,7 @@ namespace :sf_transit do
   namespace :sync do
     desc "pull muni data from the next bus api"
   	task :muni => :environment do
-    	SfTransit::Route.api_pull
+    	SfTransit::Route.api_pull 'sf-muni'
   	end
   end
 end
