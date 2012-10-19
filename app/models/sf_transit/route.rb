@@ -36,7 +36,17 @@ module SfTransit
       @transfer_routes
     end
 
-    def self.api_pull
+    def self.api_pull agency
+      if agency == 'sf-muni'
+        self.muni_api_pull
+      else
+        self.bart_api_pull
+      end
+    end
+
+    private
+
+    def self.muni_api_pull
       require 'URI'
       require 'next_muni'
       routes = NextMuni.get_routes 'sf-muni'
@@ -67,6 +77,9 @@ module SfTransit
           end
         end
       end
+    end
+
+    def self.bart_api_pull
     end
   end
 end
