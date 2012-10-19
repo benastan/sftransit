@@ -11,9 +11,9 @@
 #
 # It's strongly recommended to check this file into your version control system.
 
-ActiveRecord::Schema.define(:version => 20121017055503) do
+ActiveRecord::Schema.define(:version => 20121009040021) do
 
-  create_table "junctions", :force => true do |t|
+  create_table "sf_transit_junctions", :force => true do |t|
     t.decimal  "lat",        :precision => 15, :scale => 10
     t.decimal  "lng",        :precision => 15, :scale => 10
     t.text     "name"
@@ -22,7 +22,7 @@ ActiveRecord::Schema.define(:version => 20121017055503) do
     t.datetime "updated_at",                                 :null => false
   end
 
-  create_table "leg_junctions", :force => true do |t|
+  create_table "sf_transit_leg_junctions", :force => true do |t|
     t.integer  "junction_id"
     t.integer  "leg_id"
     t.integer  "weight"
@@ -30,25 +30,17 @@ ActiveRecord::Schema.define(:version => 20121017055503) do
     t.datetime "updated_at",  :null => false
   end
 
-  create_table "leg_stops", :force => true do |t|
+  create_table "sf_transit_leg_stops", :force => true do |t|
     t.integer  "stop_id"
     t.integer  "leg_id"
     t.datetime "created_at", :null => false
     t.datetime "updated_at", :null => false
   end
 
-  create_table "legs", :force => true do |t|
+  create_table "sf_transit_legs", :force => true do |t|
     t.string   "abbr"
     t.string   "title"
     t.integer  "route_id"
-    t.datetime "created_at", :null => false
-    t.datetime "updated_at", :null => false
-  end
-
-  create_table "routes", :force => true do |t|
-    t.string   "abbr"
-    t.string   "agency"
-    t.string   "title"
     t.datetime "created_at", :null => false
     t.datetime "updated_at", :null => false
   end
@@ -61,7 +53,7 @@ ActiveRecord::Schema.define(:version => 20121017055503) do
     t.datetime "updated_at", :null => false
   end
 
-  create_table "stops", :force => true do |t|
+  create_table "sf_transit_stops", :force => true do |t|
     t.decimal  "lat",         :precision => 15, :scale => 10
     t.decimal  "lng",         :precision => 15, :scale => 10
     t.string   "address"
@@ -71,7 +63,7 @@ ActiveRecord::Schema.define(:version => 20121017055503) do
     t.datetime "updated_at",                                  :null => false
   end
 
-  create_table "transfers", :force => true do |t|
+  create_table "sf_transit_transfers", :force => true do |t|
     t.string   "title"
     t.datetime "created_at", :null => false
     t.datetime "updated_at", :null => false
