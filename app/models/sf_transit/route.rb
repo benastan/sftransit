@@ -5,6 +5,7 @@ module SfTransit
     has_many :legs
 
     scope :muni, where(:agency => 'sf-muni')
+    scope :bart, where(:agency => 'bart')
 
     def transfer_to(route)
       transfers = self.direct_transfers
