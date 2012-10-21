@@ -47,7 +47,7 @@ module SfTransit
     private
 
     def self.muni_api_pull
-      require 'URI'
+      require 'uri'
       require 'next_muni'
       routes = NextMuni.get_routes 'sf-muni'
       routes.each do |r|
